@@ -1,3 +1,4 @@
+#input files are genotypic data in .csv and frequency table in .frq 
 Impgeno <- read.csv(paste0(pathIn, 'GenoDosageData.csv'), header=T)
 SitesPassing <- read.table(paste0(pathIn, 'Allsitesfreq.frq'), header=T)
 SitesPassing$pq <- SitesPassing$A1*SitesPassing$A2 
@@ -15,7 +16,6 @@ print(mean(diag(GRM)))
 colnames(GRM) <- rownames(GRM) <- Impgeno[,1]
 GCAgrm <- GRM/2
 print(mean(diag(GCAgrm)))
-
 writeGrm<-function(G){
   nLines=length(G[1,])
   print(nLines)
